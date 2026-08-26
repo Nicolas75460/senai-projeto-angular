@@ -1,0 +1,10 @@
+<header class="site-header">
+	<a class="brand" routerLink="/" aria-label="Nexa Studio, página inicial"><span class="brand-mark">N</span><span>NEXA <b>STUDIO</b></span></a>
+	<button class="menu-toggle" type="button" aria-label="Abrir menu" [attr.aria-expanded]="menuOpen()" (click)="menuOpen.set(!menuOpen())">☰</button>
+	<nav class="nav" [class.open]="menuOpen()" aria-label="Navegação principal">
+		<a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="menuOpen.set(false)">Início</a>
+		<a href="/#servicos" (click)="menuOpen.set(false)">Serviços</a>
+		<a href="/#sobre" (click)="menuOpen.set(false)">Sobre</a>
+		<a class="nav-button" routerLink="/contato" (click)="menuOpen.set(false)">Fale conosco</a>
+	</nav>
+</header>
