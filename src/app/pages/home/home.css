@@ -1,0 +1,163 @@
+/* Home page visual treatment */
+.hero {
+	position: relative;
+}
+
+.hero-copy,
+.hero-art,
+.section,
+.about,
+.cta {
+	animation: rise-in 700ms ease both;
+}
+
+.hero-art {
+	position: relative;
+	min-height: 390px;
+	overflow: hidden;
+	border-radius: 8px;
+	background: var(--blue);
+	box-shadow: 18px 18px 0 var(--accent);
+}
+
+.hero-art::before,
+.hero-art::after {
+	position: absolute;
+	content: '';
+	border: 1px solid rgb(255 255 255 / 22%);
+	border-radius: 50%;
+}
+
+.hero-art::before {
+	width: 290px;
+	height: 290px;
+	top: 38px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.hero-art::after {
+	width: 420px;
+	height: 420px;
+	top: -28px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.orb {
+	position: absolute;
+	top: 75px;
+	left: 50%;
+	width: 178px;
+	height: 178px;
+	border-radius: 50%;
+	background: var(--accent);
+	transform: translateX(-50%);
+	opacity: .92;
+}
+
+.panel {
+	position: absolute;
+	right: 12%;
+	bottom: 12%;
+	width: 220px;
+	padding: 22px;
+	color: #fff;
+	border: 1px solid rgb(255 255 255 / 18%);
+	border-radius: 6px;
+	background: rgb(23 32 45 / 82%);
+	backdrop-filter: blur(8px);
+}
+
+.panel-label,
+.panel small {
+	display: block;
+	color: rgb(255 255 255 / 68%);
+	font-size: 10px;
+	letter-spacing: 1.5px;
+}
+
+.panel b {
+	display: block;
+	margin: 10px 0 18px;
+	font: 600 36px 'Space Grotesk';
+}
+
+.bars {
+	display: flex;
+	align-items: end;
+	gap: 5px;
+	height: 50px;
+	margin-bottom: 14px;
+}
+
+.bars i {
+	display: block;
+	width: 100%;
+	background: var(--accent);
+	animation: grow 900ms ease both;
+}
+
+.bars i:nth-child(1) { height: 35%; }
+.bars i:nth-child(2) { height: 48%; animation-delay: 80ms; }
+.bars i:nth-child(3) { height: 42%; animation-delay: 160ms; }
+.bars i:nth-child(4) { height: 63%; animation-delay: 240ms; }
+.bars i:nth-child(5) { height: 57%; animation-delay: 320ms; }
+.bars i:nth-child(6) { height: 78%; animation-delay: 400ms; }
+.bars i:nth-child(7) { height: 100%; animation-delay: 480ms; }
+
+.card {
+	border-top: 2px solid transparent;
+	transition: border-color 180ms ease, transform 180ms ease, background 180ms ease;
+}
+
+.card:hover {
+	border-top-color: var(--accent);
+	background: #fff;
+	transform: translateY(-6px);
+}
+
+.button:focus-visible,
+.card a:focus-visible,
+.text-link:focus-visible {
+	outline: 3px solid var(--accent);
+	outline-offset: 4px;
+}
+
+@keyframes rise-in {
+	from { opacity: 0; transform: translateY(16px); }
+	to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes grow {
+	from { transform: scaleY(0); transform-origin: bottom; }
+	to { transform: scaleY(1); transform-origin: bottom; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.hero-copy,
+	.hero-art,
+	.section,
+	.about,
+	.cta,
+	.bars i {
+		animation: none;
+	}
+
+	.card,
+	.button {
+		transition: none;
+	}
+}
+
+@media (max-width: 760px) {
+	.hero-art {
+		min-height: 320px;
+		box-shadow: 10px 10px 0 var(--accent);
+	}
+
+	.panel {
+		right: 8%;
+		bottom: 9%;
+	}
+}
